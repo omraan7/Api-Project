@@ -204,7 +204,7 @@
 
           <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             <div class="xl:col-span-2">
-              <div
+              <!-- <div
                 id="apod-image-container"
                 class="relative rounded-2xl overflow-hidden group h-[300px] md:h-[400px] lg:h-[600px] bg-slate-800/50 flex items-center justify-center"
               >
@@ -218,17 +218,11 @@
                   <span class="loader"></span>
                 </div>
 
-                <div id="apod-image">
+                
 
-                </div>
+                <div id="mediaContainer" class="absolute inset-0 w-full h-full"></div>
 
-
-                <!-- <img
-                  
-                  class="w-full h-full object-cover"
-                  src="images/placeholder.webp"
-                  alt="Astronomy Picture of the Day"
-                /> -->
+              
                 <div
                   class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                 >
@@ -241,10 +235,50 @@
                     </button>
                   </div>
                 </div>
+              </div> -->
+              <div
+                id="apod-image-container"
+                class="relative rounded-2xl overflow-hidden group h-[300px] md:h-[400px] lg:h-[600px] bg-slate-800/50"
+              >
+                <div
+                  id="mediaContainer"
+                  class="absolute inset-0 w-full h-full z-10"
+                ></div>
+
+                <div
+                  id="apod-loading"
+                  class="absolute inset-0 z-40 flex flex-col items-center justify-center hidden"
+                >
+                  <i
+                    class="fas fa-spinner fa-spin text-4xl text-blue-400 mb-4"
+                  ></i>
+                  <p class="text-slate-400">Loading today's image...</p>
+                </div>
+
+                <div
+                  id="apod-loader"
+                  class="absolute inset-0 z-40 flex items-center justify-center hidden"
+                >
+                  <span class="loader"></span>
+                </div>
+
+                <div
+                  class="absolute inset-0 z-20 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                ></div>
+
+                <div
+                  class="absolute bottom-6 left-6 right-6 z-30 opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <button
+                    id="img-link"
+                    class="w-full py-3 bg-white/10 backdrop-blur-md rounded-lg font-semibold hover:bg-white/20 transition-colors"
+                  >
+                    <i class="fas fa-expand mr-2"></i>View Full Resolution
+                  </button>
+                </div>
               </div>
             </div>
-          
-            
+
             <div class="space-y-4 md:space-y-6">
               <div
                 class="bg-slate-800/50 border border-slate-700 rounded-xl md:rounded-2xl p-4 md:p-6"

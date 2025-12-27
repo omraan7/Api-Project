@@ -9,7 +9,9 @@ var sectionPlanets = document.getElementById("planets");
 
 var inputDate = document.getElementById("apod-date-input");
 var btnLodeDate = document.getElementById("load-date-btn");
-var mediaContainer = document.getElementById("apod-image");
+var mediaContainerp = document.getElementById("apod-image");
+var mediaContainer = document.getElementById("mediaContainer");
+
 var paragraphLode = document.getElementById("apod-explanation");
 var DateEnd = document.getElementById("apod-date-info");
 var linkImg = document.getElementById("img-link");
@@ -150,15 +152,26 @@ var loadAPOD = async function(date) {
     loader.classList.add("hidden");
 
     if (data.media_type === "video") {
+      mediaContainer.innerHTML =
+        '<iframe ' +
+        'src="' + data.url + '" ' +
+        'class="w-full h-full" ' +
+        'style="width:100%; height:100%;" ' +
+        'frameborder="0" ' +
+        'allow="autoplay; fullscreen" ' +
+        'allowfullscreen>' +
+        '</iframe>';
     
-
-  
+      linkImg.style.display = "none";
+    } else {
       mediaContainer.innerHTML =
-          '<iframe src="' +  data.url + '" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
-  } else {
-      mediaContainer.innerHTML =
-          '<img src="' + data.url + '" alt="APOD Image">';
-  }
+        '<img ' +
+        'src="' + data.url + '" ' +
+        'alt="APOD Image" ' +
+        'class="w-full h-full object-cover">';
+    
+      linkImg.style.display = "block";
+    }    
   
     console.log(data.url);
 
